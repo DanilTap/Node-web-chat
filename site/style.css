@@ -1,0 +1,139 @@
+body {
+	background-color: #fff;
+}
+
+.message_wrapper {
+	position: fixed;
+	background-color: #333;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 60px;
+}
+
+.message_form {
+	font-family: 'Sans serif';
+	color: white;
+	display: inline-flex;
+	height: 32px;
+}
+
+.message_form p {
+	padding-right: 17px;
+	bottom: 5px;
+	position: relative;
+}
+
+.pUsername{
+	margin-left: 49px;
+}
+
+#message{
+	border-radius: 7px;
+	width: 400px;
+	height: 37px;
+	background-color: #545454;
+	color: white;
+	border: 0;
+	padding-left: 10px;
+}
+
+#message_send{
+	cursor: pointer;
+	position: relative;
+	right: 9px;
+	border-radius: 7px;
+	height: 39px;
+	background-color: #545454;
+	color: white;
+	border: 0;
+	padding-left: 10px;
+	border-left: 5px solid #49a0f2;
+	border-right: 5px solid #49a0f2;
+}
+
+#username{
+	border-radius: 7px;
+	width: 200px;
+	height: 37px;
+	background-color: #545454;
+	color: white;
+	border: 0;
+	padding-left: 10px;
+}
+
+.right_wrapper {
+	position: fixed;
+	float: right;
+	width: 250px;
+	height: 100%;
+	right: 0;
+	top: 0;
+	background-color: #545454;
+}
+
+.title {
+	margin-left: 22%;
+	font-family: 'Consolas';
+	font-size: 25px;
+	color: #49a0f2;
+}
+
+#users_online {
+	margin-left: 24px;
+	margin-top: 55px;
+	color: white;
+	font-family: 'Consolas';
+}
+
+#messages {
+	position: fixed;
+	width: 80.5%;
+	height: 90%;
+	display: block;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	word-wrap: break-word;
+	font-family: 'Sans serif';
+}
+
+.info {
+	position: absolute;
+	top: 23px;/*21*/
+	right: 280px;/*280*/
+	display: block;
+	width: 175px;
+	height: 250px;
+	background-color: #545454;
+	border-radius: 10px;
+	word-wrap: break-word;
+	user-select: none;
+	box-shadow: 0 0 8px rgba(0,0,0,0.4);
+	-webkit-transition: top 1s ease-out 0.5s;
+	-moz-transition: top 1s ease-out 0.5s;
+	-o-transition: top 1s ease-out 0.5s;
+	transition: top 0.5s ease-out 0.2s;
+}
+
+.info:hover { top: -120px; }
+
+.info_title {
+	color: white;
+	font-family: 'Consolas';
+	font-size: 18px;
+	padding-bottom: 50px;
+	margin-top: 10px;
+}
+
+.info img {
+	position: absolute;
+	width: 46px;
+	height: 48px;
+	margin-left: 64px;
+	top: 47px;
+}
+
+.link {
+	color: #49a0f2;
+	font-family: 'Consolas';
+}

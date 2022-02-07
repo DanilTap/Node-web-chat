@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0">
+    <title>Test Chat</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="./style.css">
+    <!--JS-->
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <img src="https://avatars.mds.yandex.net/i?id=155e0613c167cb035a70d4f44c2bdb75-5268966-images-thumbs&n=13" alt="" style="width: 1260;" hidden="true">
+
+    <div class="right_wrapper">
+        <p class="title">PySider RU_<br>Chat</p>
+        <p id="users_online">🟢 Online: <strong>0</strong></p>
+    </div>
+
+    <div id="messages">
+        <p></p>
+    </div>
+
+    <div class="message_wrapper">
+        <span class="message_form">
+            <input type="message_input" id="message" autofocus maxlength="1000" placeholder="Сообщение...">
+            <button id="message_send" onclick="MessageSend()">Send</button>
+
+            <p class="pUsername">Никнейм:</p>
+            <input type="username_input" id="username" placeholder="%USERNAME%" maxlength="25">
+        </span>
+
+        <span class="info">
+            <center><p class="info_title">INFORMATION</p></center>
+            <img src="https://media.discordapp.net/attachments/809274410049339452/940237798970105947/739986515752648794.png" alt="">
+            <center><a class="link" href="https://discord.gg/Rsu8hr6z">https://discord.gg/Rsu8hr6z</a></center>
+        </span>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

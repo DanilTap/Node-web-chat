@@ -41,5 +41,5 @@ io.on("connection", (socket) => {
     });
 });
 
-
-httpServer.listen(3000, () => console.log('Server ready!'));
+var port = process.env.PORT || 8000;
+httpServer.listen(port, () => console.log('Server ready!'));

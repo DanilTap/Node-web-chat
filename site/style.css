@@ -11,6 +11,62 @@ body {
 	height: 60px;
 }
 
+@media screen and (max-width: 900px) {
+	.message_wrapper {
+		height: 120px;
+	}
+
+	.pUsername {
+		margin-left: -460px !important;
+		margin-top: 75px !important;
+	}
+
+	#username {
+		margin-top: 60px !important;
+	}
+
+	.info {
+		top: 82px !important;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#messages {
+		width: 47% !important;
+	}
+
+	.message_form {
+		width: 100% !important;
+	}
+
+	#message {
+		width: 75% !important;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	#messages {
+		width: 100% !important;
+		margin-top: 170px !important;
+	}
+
+	.right_wrapper {
+		position: relative !important;
+		width: 310px !important;
+		top: -10px !important;
+		right: -10px !important;
+	}
+
+	.pUsername {
+		margin-left: -290px !important;
+		margin-top: 75px !important;
+	}
+
+	#username {
+		width: 170px !important;
+	}
+}
+
 .message_form {
 	font-family: 'Sans serif';
 	color: white;

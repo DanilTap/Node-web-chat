@@ -44,7 +44,7 @@ body {
 	}
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 350px) {
 	#messages {
 		width: 100% !important;
 		margin-top: 170px !important;
@@ -52,7 +52,7 @@ body {
 
 	.right_wrapper {
 		position: relative !important;
-		width: 310px !important;
+		width: 340px !important;
 		top: -10px !important;
 		right: -10px !important;
 	}
@@ -64,6 +64,10 @@ body {
 
 	#username {
 		width: 170px !important;
+	}
+
+	#users_online {
+		margin-left: 50px !important;
 	}
 }
 

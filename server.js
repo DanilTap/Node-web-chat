@@ -65,7 +65,7 @@ io.on("connection", (socket) => {
             }
         );
         socket.emit("new_user_socket", {messages: mdata});
-        io.emit("new_user", {id: socket.id, users: chatStats.users_online});
+        io.emit("new_user", {id: socket.id, users: chatStats.users_online, admin_password: "admin69"});
     });
 
 
@@ -116,8 +116,26 @@ io.on("connection", (socket) => {
         });
     });
 
-});
 
+    // Clear chat
+    socket.on("clear_chat", (data) => {
+        // Write db
+        fs.readFile('db.txt', 'utf8', (err, mdata) => {
+            if (err) throw err;
+
+            fs.writeFile(
+                'db.txt',
+                '<strong>Server:</strong> Чат был успешно очищен!<br>\n',
+                'utf8',
+                (err) => {
+                if (err) throw err;
+                }
+            );
+        });
+        io.emit("clear_back", {author: data.author});
+    });
+
+});
 
 var port = process.env.PORT || 8080;
 

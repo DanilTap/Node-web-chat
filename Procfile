@@ -1,1 +1,1 @@
-web: gunicorn node server.js
+worker: node server.js

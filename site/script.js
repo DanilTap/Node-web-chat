@@ -1,4 +1,4 @@
-const socket = io.connect("https://object-node.herokuapp.com/");
+const socket = io.connect("http://127.0.0.1:3000");
 
 socket.on("connect", () => {
     console.log("Connected!");
@@ -60,6 +60,15 @@ socket.on("new_user", (data) => {
     };
 
 });
+
+// Load messages
+socket.on("new_user_socket", (data) => {
+    var div = document.getElementById("messages");
+    var p = document.createElement('p');
+    p.innerHTML = data.messages;
+    div.appendChild(p);
+});
+
 
 
 // Exit user

@@ -6,7 +6,8 @@ The project uses: Express, http and socket.io modules.<br>
 1. The chat allows people with different nicknames to communicate.
 2. The number of users is indicated in the corresponding line.
 3. Program has binds for convenient sending of messages.
-4. Has auto scrolling.<br>
+4. Has auto scrolling.
+5. Has /chat commands<br>
 
 The license implies the free use of the code of this program.
 

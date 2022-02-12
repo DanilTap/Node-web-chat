@@ -1,4 +1,4 @@
-const socket = io.connect("http://127.0.0.1:3000");
+const socket = io.connect("https://object-node.herokuapp.com");
 
 socket.on("connect", () => {
     console.log("Connected!");

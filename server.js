@@ -65,7 +65,7 @@ io.on("connection", (socket) => {
             }
         );
         socket.emit("new_user_socket", {messages: mdata});
-        io.emit("new_user", {id: socket.id, users: chatStats.users_online, admin_password: "admin69"});
+        io.emit("new_user", {id: socket.id, users: chatStats.users_online, admin_password: "there is password"});
     });
 
 

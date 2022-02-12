@@ -119,10 +119,6 @@ io.on("connection", (socket) => {
 });
 
 
-/*
-1. БД сообщений и пользователей
-2. Настройка: цвет ника, цветовая тема, автоскролл
-*/
+var port = process.env.PORT || 8000;
 
-
-httpServer.listen(3000, () => console.log('Server ready!'));
+httpServer.listen(port, () => console.log('Server ready!'));

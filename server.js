@@ -119,6 +119,6 @@ io.on("connection", (socket) => {
 });
 
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8080;
 
 httpServer.listen(port, () => console.log('Server ready!'));

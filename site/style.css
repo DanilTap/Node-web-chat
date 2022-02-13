@@ -44,15 +44,15 @@ body {
 	}
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
 	#messages {
 		width: 100% !important;
-		margin-top: 170px !important;
+		margin-top: 350px !important;
 	}
 
 	.right_wrapper {
 		position: relative !important;
-		width: 340px !important;
+		width: 385px !important;
 		top: -10px !important;
 		right: -10px !important;
 	}

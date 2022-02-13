@@ -3,6 +3,13 @@ const createServer = require("http");
 const Server = require("socket.io");
 const fs = require("fs");
 
+
+function timeReq(){
+    console.log("Timing");
+};
+
+setInterval(timeReq, 25000);
+
 /*
 function RestDB(){
     fs.readFile('db.txt', 'utf8', (err, data) => {
@@ -65,7 +72,7 @@ io.on("connection", (socket) => {
             }
         );
         socket.emit("new_user_socket", {messages: mdata});
-        io.emit("new_user", {id: socket.id, users: chatStats.users_online, admin_password: "there is password"});
+        io.emit("new_user", {id: socket.id, users: chatStats.users_online, admin_password: "admin69"});
     });
 
 
@@ -134,7 +141,6 @@ io.on("connection", (socket) => {
         });
         io.emit("clear_back", {author: data.author});
     });
-
 });
 
 var port = process.env.PORT || 8080;

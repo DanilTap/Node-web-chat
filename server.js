@@ -145,7 +145,7 @@ io.on("connection", (socket) => {
 
     // Cups message
     socket.on("cups_commad", (data) => {
-        io.emit("cups_back", {author: data.author, message: data.message});
+        io.emit("cups_back", {author: data.username, message: data.message});
     });
 
 });

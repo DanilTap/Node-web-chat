@@ -3,6 +3,13 @@ const createServer = require("http");
 const Server = require("socket.io");
 const fs = require("fs");
 
+
+function timeReq(){
+    console.log("Timing");
+};
+
+setInterval(timeReq, 25000);
+
 /*
 function RestDB(){
     fs.readFile('db.txt', 'utf8', (err, data) => {
@@ -134,6 +141,13 @@ io.on("connection", (socket) => {
         });
         io.emit("clear_back", {author: data.author});
     });
+
+
+    // Cups message
+    socket.on("cups_commad", (data) => {
+        io.emit("cups_back", {author: data.author, message: data.message});
+    });
+
 });
 
 var port = process.env.PORT || 8080;

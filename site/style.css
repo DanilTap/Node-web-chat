@@ -47,12 +47,12 @@ body {
 @media screen and (max-width: 400px) {
 	#messages {
 		width: 100% !important;
-		margin-top: 350px !important;
+		margin-top: 200px !important;
 	}
 
 	.right_wrapper {
 		position: relative !important;
-		width: 385px !important;
+		width: 405px !important;
 		top: -10px !important;
 		right: -10px !important;
 		height: 150px !important;
@@ -72,8 +72,9 @@ body {
 
 	#commands_list {
 		position: relative;
-		left: 70px;
+		left: 50px;
 		top: 200px;
+		z-index: 1000 !important;
 	}
 
 	.pUsername {

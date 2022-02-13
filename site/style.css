@@ -55,6 +55,25 @@ body {
 		width: 385px !important;
 		top: -10px !important;
 		right: -10px !important;
+		height: 150px !important;
+	}
+
+	#users_online {
+		position: relative;
+		margin-top: 0px !important;
+		left: 30px !important;
+	}
+
+	#commands {
+		position: relative;
+		margin-top: -150px;
+		left: 200px;
+	}
+
+	#commands_list {
+		position: relative;
+		left: 70px;
+		top: 200px;
 	}
 
 	.pUsername {

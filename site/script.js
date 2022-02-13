@@ -1,4 +1,4 @@
-const socket = io.connect("https://object-node.herokuapp.com");
+const socket = io.connect("object-node.herokuapp.com");
 
 socket.on("connect", () => {
     console.log("Connected!");
@@ -53,7 +53,7 @@ function MessageSend(){
             if (password == chatSettings.admin_password){
                 socket.emit('clear_chat', {author: author});
             };
-        } else if (cups == true){
+        } else if (cups == true){ // Cups
             var incontent = content.split('/cups ')[1];
             var string = "";
             try{
@@ -64,7 +64,7 @@ function MessageSend(){
                 };
             }
             catch{
-                createMessage("Server", `${string}`);
+                socket.emit('cups_commad', {username: author, message: string})
             };
 
         } else { 
@@ -91,6 +91,10 @@ socket.on("clear_back", (data) =>{
     };
     createMessage("Server", `<i>${data.author}</i> Запустил очистку чата, она произойдет через 5 секунд`)
     setTimeout(() => clearChat(), 5000);
+});
+
+socket.on("cups_back", (data) =>{
+    createMessage(data.author, data.message);
 });
 
 socket.on("new_message", (data) => {

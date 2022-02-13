@@ -3,13 +3,6 @@ const createServer = require("http");
 const Server = require("socket.io");
 const fs = require("fs");
 
-
-function timeReq(){
-    console.log("Timing");
-};
-
-setInterval(timeReq, 25000);
-
 /*
 function RestDB(){
     fs.readFile('db.txt', 'utf8', (err, data) => {

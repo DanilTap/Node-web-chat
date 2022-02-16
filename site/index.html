@@ -32,6 +32,23 @@
             <input type="message_input" id="message" autofocus maxlength="1000" placeholder="Сообщение...">
             <button id="message_send" onclick="MessageSend()">Send</button>
 
+            <!--Stickers-->
+            <img id="stick_button" onclick="stickClick()" src="./images/smiley.png" alt="">
+            <span id="stickers" hidden="true">
+                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+                    <img onclick="stickerSend('cup')" style="width: 40px; height: 40px; float: left;" src="./images/cup.png" alt="" title="cup">
+                    <img onclick="stickerSend('server')" style="width: 40px; height: 40px; float: left;" src="./images/server.png" alt="" title="server">
+                    <img onclick="stickerSend('1c')" style="width: 40px; height: 40px; float: left;" src="./images/1c.jpg" alt="" title="1c">
+                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+                    <img onclick="stickerSend('aue')" style="width: 45px; height: 40px; float: left;" src="./images/aue.jpeg" alt="" title="aue">
+                    <img onclick="stickerSend('hm')" style="width: 50px; height: 40px; float: left;" src="./images/hm.png" alt="" title="hm">
+                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+                    <img onclick="stickerSend('shirik1')" style="width: 40px; height: 40px; float: left;" src="./images/shirik1.png" alt="" title="shirik1 Ты хочешь поспорить?">
+                    <img onclick="stickerSend('JS')" style="width: 40px; height: 40px; float: left;" src="./images/js.png" alt="" title="JS">
+                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+
+            </span>
+
             <p class="pUsername">Никнейм:</p>
             <input type="username_input" id="username" placeholder="%USERNAME%" maxlength="25">
         </span>

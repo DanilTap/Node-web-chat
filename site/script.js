@@ -9,7 +9,8 @@ socket.on("connect", () => {
 var chatSettings = new Object();
 var chatSettings = {
     admin_password: "",
-    commands_show: false
+    commands_show: false,
+    stick_show: false
 };
 
 
@@ -143,6 +144,13 @@ socket.on("udisconnect", (data) => {
     div.scrollBy(0, 100);
 });
 
+// Sticks
+socket.on("sticker_back", (data) => {
+    createMessage(data.name, data.text);
+    var div = document.getElementById('messages');
+    div.scrollBy(0, 100);
+});
+
 
 function commandsClick(){
     if (chatSettings.commands_show == false){
@@ -153,3 +161,25 @@ function commandsClick(){
         chatSettings.commands_show = false;
     }
 };
+
+
+function stickClick(){
+    if (chatSettings.stick_show == false){
+        document.getElementById('stickers').hidden = false;
+        chatSettings.stick_show = true;
+    } else if (chatSettings.stick_show == true){
+        document.getElementById('stickers').hidden = true;
+        chatSettings.stick_show = false;
+    }
+}
+
+
+function stickerSend(stick){
+    var uname = document.getElementById('username');
+    var username = uname.value;
+    if (username == ""){
+        username = "%USERNAME%";
+    };
+
+    socket.emit("sticker_send", {author: username, name: stick});
+}

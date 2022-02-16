@@ -11,23 +11,42 @@ body {
 	height: 60px;
 }
 
+@media screen and (max-width: 1100px) {
+	#messages {
+		width: 75% !important;
+	}
+
+	#stickers {
+		margin-left: 340px !important;
+	}
+}
+
 @media screen and (max-width: 900px) {
 	.message_wrapper {
-		height: 120px;
+		height: 90px;
 	}
 
 	.pUsername {
-		margin-left: -460px !important;
-		margin-top: 75px !important;
-	}
-
-	#username {
+		margin-left: -500px !important;
 		margin-top: 60px !important;
 	}
 
-	.info {
-		top: 82px !important;
+	#username {
+		margin-top: 45px !important;
 	}
+
+	#stickers {
+		margin-left: 200px !important;
+	}
+
+	.info {
+		top: 55px !important;
+	}
+
+	#messages {
+		width: 70% !important;
+	}
+
 }
 
 @media screen and (max-width: 500px) {
@@ -40,7 +59,25 @@ body {
 	}
 
 	#message {
-		width: 75% !important;
+		width: 72% !important;
+	}
+
+	.pUsername {
+		margin-left: -450px !important;
+		margin-top: 60px !important;
+	}
+
+	#stickers {
+		background-color: #333 !important;
+		margin-left: 100px !important;
+	}
+
+	#stick_button {
+		margin-right: 5px !important;
+	}
+
+	.info {
+		opacity: 0 !important;
 	}
 }
 
@@ -71,6 +108,14 @@ body {
 		left: 200px;
 	}
 
+	#stickers {
+		margin-left: 5px !important;
+	}
+
+	#message {
+		width: 65% !important;
+	}
+
 	#commands_list {
 		position: relative;
 		left: 50px;
@@ -79,8 +124,8 @@ body {
 	}
 
 	.pUsername {
-		margin-left: -290px !important;
-		margin-top: 75px !important;
+		margin-left: -320px !important;
+		margin-top: 60px !important;
 	}
 
 	#username {
@@ -144,7 +189,7 @@ body {
 }
 
 .pUsername{
-	margin-left: 49px;
+	margin-left: 55px;
 }
 
 #message{
@@ -255,4 +300,43 @@ body {
 .link {
 	color: #49a0f2;
 	font-family: 'Consolas';
+}
+
+#stick_button {
+	margin-left: 5px;
+	width: 50px;
+	height: 40px;
+	cursor: pointer;
+	filter: grayscale(70%);
+	transition: 0.2s;
+	user-select: none;
+}
+
+#stick_button:hover {
+	filter: none;
+}
+
+#stickers {
+	position: absolute;
+	margin-top: -213px;
+	margin-left: 475px;
+	width: 300px;
+	height: 200px;
+	background-color: #545454;
+	border-radius: 6px;
+	float: left;
+	padding-left: 10px;
+	padding-top: 10px;
+	user-select: none;
+	overflow-y: scroll;
+}
+
+#stickers img {
+	cursor: pointer;
+	border-radius: 4px;
+	padding: 3px;
+}
+
+#stickers img:hover {
+	background-color: #656565;
 }

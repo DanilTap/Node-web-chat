@@ -7,7 +7,8 @@ The project uses: Express, http and socket.io modules.<br>
 2. The number of users is indicated in the corresponding line.
 3. Program has binds for convenient sending of messages.
 4. Has auto scrolling.
-5. Has /chat commands<br>
+5. Has /chat commands
+6. Stickers!<br>
 
 The license implies the free use of the code of this program.
 

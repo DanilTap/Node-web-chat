@@ -4,12 +4,6 @@ const Server = require("socket.io");
 const fs = require("fs");
 
 
-function timeReq(){
-    console.log("Timing");
-};
-
-setInterval(timeReq, 25000);
-
 /*
 function RestDB(){
     fs.readFile('db.txt', 'utf8', (err, data) => {
@@ -124,6 +118,48 @@ io.on("connection", (socket) => {
     });
 
 
+    // Sticker message
+    socket.on("sticker_send", (data) => {
+        console.log(`${data.username}: ${data.name}`)
+        var msg = "";
+
+        if (data.name == "smiley"){
+            msg = '<img style="width: 65px; height: 50px; position: relative; top: 18px;" src="./images/smiley.png" alt="">';
+        } else if (data.name == "cup"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/cup.png" alt="">';
+        } else if (data.name == "server"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/server.png" alt="">';
+        } else if (data.name == "1c"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/1c.jpg" alt="">';
+        } else if (data.name == "aue"){
+            msg = '<img style="width: 55px; height: 50px; position: relative; top: 18px;" src="./images/aue.jpeg" alt="">';
+        } else if (data.name == "hm"){
+            msg = '<img style="width: 55px; height: 50px; position: relative; top: 18px;" src="./images/hm.png" alt="">';
+        } else if (data.name == "shirik1"){
+            msg = '<img style="width: 80px; height: 70px; position: relative; top: 18px;" src="./images/shirik1.png" alt="">';
+        } else if (data.name == "JS"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/js.png" alt="">';
+        };
+
+        io.emit("sticker_back", {name: data.author, text: msg});
+
+        // Write db
+        fs.readFile('db.txt', 'utf8', (err, mdata) => {
+            if (err) throw err;
+
+        var string = `${mdata}<br>\n<strong>${data.author}</strong>: ${msg}<br>\n`
+            fs.writeFile(
+                'db.txt',
+                string,
+                'utf8',
+                (err) => {
+                if (err) throw err;
+                }
+            );
+        });
+    });
+
+
     // Clear chat
     socket.on("clear_chat", (data) => {
         // Write db
@@ -149,6 +185,7 @@ io.on("connection", (socket) => {
     });
 
 });
+
 
 var port = process.env.PORT || 8080;
 

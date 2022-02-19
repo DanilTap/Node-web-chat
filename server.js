@@ -99,13 +99,13 @@ io.on("connection", (socket) => {
     // New message
     socket.on("new_message", (data) => {
         console.log(`${data.username}: ${data.message}`)
-        io.emit("new_message", {username: data.username, message: data.message});
+        io.emit("new_message", {username: data.username, message: data.message, nc: data.nc});
 
         // Write db
         fs.readFile('db.txt', 'utf8', (err, mdata) => {
             if (err) throw err;
 
-            var nmessage = `${mdata}<br>\n<strong>${data.username}</strong>: ${data.message}<br>\n`;
+            var nmessage = `${mdata}<br>\n<strong style="color: ${data.nc};">${data.username}</strong>: ${data.message}<br>\n`;
             fs.writeFile(
                 'db.txt',
                 nmessage,
@@ -141,13 +141,13 @@ io.on("connection", (socket) => {
             msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/js.png" alt="">';
         };
 
-        io.emit("sticker_back", {name: data.author, text: msg});
+        io.emit("sticker_back", {name: data.author, text: msg, nc: data.nc});
 
         // Write db
         fs.readFile('db.txt', 'utf8', (err, mdata) => {
             if (err) throw err;
 
-        var string = `${mdata}<br>\n<strong>${data.author}</strong>: ${msg}<br>\n`
+        var string = `${mdata}<br>\n<strong style="color: ${data.nc};">${data.author}</strong>: ${msg}<br>\n`
             fs.writeFile(
                 'db.txt',
                 string,
@@ -185,7 +185,6 @@ io.on("connection", (socket) => {
     });
 
 });
-
 
 var port = process.env.PORT || 8080;
 

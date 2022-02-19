@@ -1,4 +1,4 @@
-const socket = io.connect("object-node.herokuapp.com");
+const socket = io.connect("https://object-node.herokuapp.com");
 
 socket.on("connect", () => {
     console.log("Connected!");
@@ -10,17 +10,29 @@ var chatSettings = new Object();
 var chatSettings = {
     admin_password: "",
     commands_show: false,
-    stick_show: false
+    stick_show: false,
+    settings_show: false
 };
 
 
 // METHODS
-function createMessage(username, message){
-    var div = document.getElementById("messages");
-    var p = document.createElement('p');
-    p.innerHTML = `<strong>${username}:</strong> ${message}<br>`;
-    p.className = "in_message";
-    div.appendChild(p);
+function createMessage(username, message, nick_color){
+    if (nick_color == "color" || nick_color == ""){
+        var div = document.getElementById("messages");
+        var p = document.createElement('p');
+        p.innerHTML = `<strong>${username}:</strong> ${message}<br>`;
+        p.className = "in_message";
+        div.appendChild(p);
+        div.scrollBy(0, 100);
+
+    } else {
+        var div = document.getElementById("messages");
+        var p = document.createElement('p');
+        p.innerHTML = `<strong style="color: ${nick_color};">${username}:</strong> ${message}<br>`;
+        p.className = "in_message";
+        div.appendChild(p);
+        div.scrollBy(0, 100);
+    }
 };
 
 // Bind
@@ -38,6 +50,14 @@ function MessageSend(){
     var text = document.getElementById('message');
     var message = text.value;
     text.value = "";
+
+    var nick_color = document.getElementById('nc');
+    var nc = nick_color.value;
+
+    var nnc = nc;
+    if (nc == "#FFFFFF" || nc == "#fff" || nc == "#FFF"){
+        nnc = "#000";
+    };
 
     var name = document.getElementById('username');
     var username = name.value;
@@ -65,12 +85,12 @@ function MessageSend(){
                 };
             }
             catch{
-                socket.emit('cups_commad', {username: author, message: string})
+                socket.emit('cups_commad', {username: author, message: string, nc: nnc})
             };
 
         } else { 
             // Send message
-            socket.emit('new_message', {username: username, message: message});
+            socket.emit('new_message', {username: username, message: message, nc: nnc});
         };
     };
     slashCommands(message, username);
@@ -99,9 +119,7 @@ socket.on("cups_back", (data) =>{
 });
 
 socket.on("new_message", (data) => {
-    createMessage(data.username, data.message);
-    var div = document.getElementById('messages');
-    div.scrollBy(0, 100);
+    createMessage(data.username, data.message, data.nc);
 });
 
 
@@ -146,12 +164,31 @@ socket.on("udisconnect", (data) => {
 
 // Sticks
 socket.on("sticker_back", (data) => {
-    createMessage(data.name, data.text);
-    var div = document.getElementById('messages');
-    div.scrollBy(0, 100);
+    createMessage(data.name, data.text, data.nc);
 });
 
 
+function stickerSend(stick){
+    var nick_color = document.getElementById('nc');
+    var nc = nick_color.value;
+
+    var nnc = nc;
+    if (nc == "#FFFFFF" || nc == "#fff" || nc == "#FFF"){
+        nnc = "#000";
+    };
+
+    var uname = document.getElementById('username');
+    var username = uname.value;
+    if (username == ""){
+        username = "%USERNAME%";
+    };
+
+    socket.emit("sticker_send", {author: username, name: stick, nc: nnc});
+}
+
+
+
+// Front
 function commandsClick(){
     if (chatSettings.commands_show == false){
         document.getElementById('commands_list').hidden = false;
@@ -173,13 +210,16 @@ function stickClick(){
     }
 }
 
+function settingsClick(){
+    console.log("ggg");
+    console.log(chatSettings.settings_show);
+    var settings_block = document.getElementById('settings');
+    if (chatSettings.settings_show == false){
+        settings_block.setAttribute("style", "z-index: 1000 !important; opacity: 1 !important;");
+        chatSettings.settings_show = true;
 
-function stickerSend(stick){
-    var uname = document.getElementById('username');
-    var username = uname.value;
-    if (username == ""){
-        username = "%USERNAME%";
-    };
-
-    socket.emit("sticker_send", {author: username, name: stick});
+    } else if (chatSettings.settings_show == true){
+        settings_block.setAttribute("style", "z-index: 0 !important; opacity: 0 !important;");
+        chatSettings.settings_show = false;
+    }
 }

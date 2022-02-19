@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style.css">
     <!--JS-->
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+    <script src="jscolor.js"></script>
 </head>
 
 <body>
@@ -16,10 +17,16 @@
     <div class="right_wrapper">
         <p class="title">PySider RU_<br>Chat</p>
         <p id="users_online">🟢 Online: <strong>0</strong></p>
-        <span class="settings">
+
+        <img id="settings_button" src="./images/settings_icon.png" alt="" onclick="settingsClick();">
+        <span id="settings">
             <center><p class="settings_title">Настройки</p></center>
             <button id="commands" onclick="commandsClick()">Команды</button>
             <span id="commands_list" hidden="true"><i>• /clear</i> - Очищает чат от сообщений.<br><i>• /cups</i> - Меняет РеГиСтР букв.</span>
+
+            <center><p class="pers">Профиль</p></center>
+            <p class="nc_title">Цвет ника:</p>
+            <input id="nc" value="#000000" data-jscolor="{format: 'hex'}" >
         </span>
     </div>
 

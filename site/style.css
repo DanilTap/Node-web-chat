@@ -88,6 +88,29 @@ body {
 		height: 42% !important;
 	}
 
+	#settings_button {
+		position: relative !important;
+		opacity: 1 !important;
+		cursor: pointer !important;
+		margin-left: 220px !important;
+		bottom: 50px !important;
+		float: left !important;
+	}
+
+	#settings {
+		position: relative !important;
+		background-color: #545454 !important;
+		width: 100% !important;
+		height: 350px !important;
+		z-index: 0 !important;
+		top: -40px !important;
+		opacity: 0 !important;
+	}
+
+	#commands {
+		margin-left: 80px !important;
+	}
+
 	.right_wrapper {
 		position: relative !important;
 		width: 405px !important;
@@ -100,12 +123,6 @@ body {
 		position: relative;
 		margin-top: 0px !important;
 		left: 30px !important;
-	}
-
-	#commands {
-		position: relative;
-		margin-top: -150px;
-		left: 200px;
 	}
 
 	#stickers {
@@ -137,17 +154,18 @@ body {
 	}
 }
 
-.settings {
+#settings {
 	margin-top: 60px;
 	display: block;
 	width: 100%;
 	border-top: 3px dashed #333;
+	opacity: 1;
+	z-index: 1000;
 }
 
 #commands {
 	margin-left: 20px;
 	cursor: pointer;
-	float: left;
 	color: white;
 	font-family: 'Consolas';
 	font-size: 16px;
@@ -167,6 +185,28 @@ body {
 	font-family: 'Consolas';
 	color: white;
 	padding: 30px;
+}
+
+.pers {
+	position: relative;
+	top: 10px;
+	font-family: 'Consolas';
+	color: white;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+.nc_title {
+	font-family: 'Consolas';
+	color: white;
+	float: left;
+	margin-left: 20px;
+}
+
+#nc {
+	width: 70px;
+	margin-top: 10px;
+	margin-left: 5px;
 }
 
 .settings_title {
@@ -339,4 +379,11 @@ body {
 
 #stickers img:hover {
 	background-color: #656565;
+}
+
+#settings_button {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	opacity: 0;
 }

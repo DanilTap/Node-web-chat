@@ -108,7 +108,7 @@ body {
 	}
 
 	#commands {
-		margin-left: 80px !important;
+		margin-left: 40% !important;
 	}
 
 	.right_wrapper {
@@ -129,6 +129,10 @@ body {
 		margin-left: 5px !important;
 	}
 
+	body {
+		overflow-x: hidden !important;
+	}
+
 	#message {
 		width: 65% !important;
 	}
@@ -136,8 +140,13 @@ body {
 	#commands_list {
 		position: relative;
 		left: 50px;
-		top: 200px;
+		top: 180px;
 		z-index: 1000 !important;
+		background-color: #fff0 !important;
+	}
+
+	.nc_title {
+		margin-left: 25% !important;
 	}
 
 	.pUsername {
@@ -178,7 +187,7 @@ body {
 #commands_list {
 	background-color: #545454;
 	width: 240px;
-	height: 85px;
+	height: 100px;
 	right: 230px;
 	position: absolute;
 	border-radius: 5px;
@@ -240,6 +249,7 @@ body {
 	color: white;
 	border: 0;
 	padding-left: 10px;
+	padding-right: 15px;
 }
 
 #message_send{

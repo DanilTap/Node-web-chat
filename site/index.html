@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <img id="ping_tester" alt="" hidden="true">
     <img src="https://avatars.mds.yandex.net/i?id=155e0613c167cb035a70d4f44c2bdb75-5268966-images-thumbs&n=13" alt="" style="width: 1260;" hidden="true">
 
     <div class="right_wrapper">
@@ -22,7 +23,7 @@
         <span id="settings">
             <center><p class="settings_title">Настройки</p></center>
             <button id="commands" onclick="commandsClick()">Команды</button>
-            <span id="commands_list" hidden="true"><i>• /clear</i> - Очищает чат от сообщений.<br><i>• /cups</i> - Меняет РеГиСтР букв.</span>
+            <span id="commands_list" hidden="true"><i>• /clear</i> - Очищает чат от сообщений.<br><i>• /cups</i> - Меняет РеГиСтР букв.<br><i>• /ping</i> - Выводит пинг пользователя.<br></span>
 
             <center><p class="pers">Профиль</p></center>
             <p class="nc_title">Цвет ника:</p>
@@ -44,14 +45,21 @@
             <span id="stickers" hidden="true">
                     <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
                     <img onclick="stickerSend('cup')" style="width: 40px; height: 40px; float: left;" src="./images/cup.png" alt="" title="cup">
+                    <img onclick="stickerSend('dirol')" style="width: 40px; height: 40px; float: left;" src="./images/dirol.gif" alt="" title="dirol">
                     <img onclick="stickerSend('server')" style="width: 40px; height: 40px; float: left;" src="./images/server.png" alt="" title="server">
                     <img onclick="stickerSend('1c')" style="width: 40px; height: 40px; float: left;" src="./images/1c.jpg" alt="" title="1c">
-                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+                    <img onclick="stickerSend('cosoi')" style="width: 35px; height: 40px; float: left;" src="./images/cosoi.gif" alt="" title="cosoi">
+                    <img onclick="stickerSend('wall')" style="width: 70px; height: 40px; float: left;" src="./images/wall.gif" alt="" title="wall">
                     <img onclick="stickerSend('aue')" style="width: 45px; height: 40px; float: left;" src="./images/aue.jpeg" alt="" title="aue">
+                    <img onclick="stickerSend('thumbs_up')" style="width: 40px; height: 40px; float: left;" src="./images/thumbs_up.gif" alt="" title="thumbs_up">
                     <img onclick="stickerSend('hm')" style="width: 50px; height: 40px; float: left;" src="./images/hm.png" alt="" title="hm">
-                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+                    <img onclick="stickerSend('hahaha1')" style="width: 40px; height: 40px; float: left;" src="./images/hahaha1.gif" alt="" title="hahaha1">
                     <img onclick="stickerSend('shirik1')" style="width: 40px; height: 40px; float: left;" src="./images/shirik1.png" alt="" title="shirik1 Ты хочешь поспорить?">
                     <img onclick="stickerSend('JS')" style="width: 40px; height: 40px; float: left;" src="./images/js.png" alt="" title="JS">
+                    <img onclick="stickerSend('bandit')" style="width: 40px; height: 40px; float: left;" src="./images/bandit.gif" alt="" title="bandit">
+                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+                    <img onclick="stickerSend('hahaha')" style="width: 40px; height: 40px; float: left;" src="./images/hahaha.png" alt="" title="hahaha">
+                    <img onclick="stickerSend('cho')" style="width: 40px; height: 40px; float: left;" src="./images/cho.png" alt="" title="cho">
                     <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
 
             </span>
@@ -64,6 +72,7 @@
             <center><p class="info_title">INFORMATION</p></center>
             <img src="https://media.discordapp.net/attachments/809274410049339452/940237798970105947/739986515752648794.png" alt="">
             <center><a class="link" href="https://discord.gg/Rsu8hr6z">https://discord.gg/Rsu8hr6z</a></center>
+            <center><p style="color: white; font-family: 'Consolas'; cursor: pointer;" onclick="setTimeout(() => {confirm('✅ 1000р успешно были списаны и отправлены сайту.')}, 2000)" title="Для Просто Лёши">Донат</p></center>
         </span>
     </div>
 

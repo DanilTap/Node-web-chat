@@ -48,6 +48,11 @@ app.get('/', function(req, res) {
 
 
 io.on("connection", (socket) => {
+    // Server ping
+    socket.on("server_ping", (data) => {return;})
+
+
+
     // New user
     console.log(`Connected ${socket.id}!`);
     chatStats.users_online += 1;
@@ -139,6 +144,22 @@ io.on("connection", (socket) => {
             msg = '<img style="width: 80px; height: 70px; position: relative; top: 18px;" src="./images/shirik1.png" alt="">';
         } else if (data.name == "JS"){
             msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/js.png" alt="">';
+        } else if (data.name == "bandit"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/bandit.gif" alt="">';
+        } else if (data.name == "cho"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/cho.png" alt="">';
+        } else if (data.name == "cosoi"){
+            msg = '<img style="width: 45px; height: 50px; position: relative; top: 18px;" src="./images/cosoi.gif" alt="">';
+        } else if (data.name == "dirol"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/dirol.gif" alt="">';
+        } else if (data.name == "hahaha"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/hahaha.png" alt="">';
+        } else if (data.name == "hahaha1"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/hahaha1.gif" alt="">';
+        } else if (data.name == "wall"){
+            msg = '<img style="width: 80px; height: 45px; position: relative; top: 18px;" src="./images/wall.gif" alt="">';
+        } else if (data.name == "thumbs_up"){
+            msg = '<img style="width: 50px; height: 50px; position: relative; top: 18px;" src="./images/thumbs_up.gif" alt="">';
         };
 
         io.emit("sticker_back", {name: data.author, text: msg, nc: data.nc});
@@ -178,13 +199,8 @@ io.on("connection", (socket) => {
         io.emit("clear_back", {author: data.author});
     });
 
-
-    // Cups message
-    socket.on("cups_commad", (data) => {
-        io.emit("cups_back", {author: data.username, message: data.message});
-    });
-
 });
+
 
 var port = process.env.PORT || 8080;
 

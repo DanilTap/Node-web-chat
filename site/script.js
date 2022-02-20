@@ -5,17 +5,35 @@ socket.on("connect", () => {
 });
 
 
+// Server ping
+setInterval(function() {
+    socket.emit("server_ping");
+}, 15000);
+
+
 // Variables
 var chatSettings = new Object();
 var chatSettings = {
     admin_password: "",
     commands_show: false,
     stick_show: false,
-    settings_show: false
+    settings_show: false,
+    nread_stats: false,
+    nread_messages: 0
 };
 
 
 // METHODS
+window.onfocus = function () {
+    chatSettings.nread_stats = true;
+    chatSettings.nread_messages = 0;
+    document.title = `Test Chat`;
+};
+
+window.onblur = function () {
+    chatSettings.nread_stats = false;
+};
+
 function createMessage(username, message, nick_color){
     if (nick_color == "color" || nick_color == ""){
         var div = document.getElementById("messages");
@@ -25,6 +43,11 @@ function createMessage(username, message, nick_color){
         div.appendChild(p);
         div.scrollBy(0, 100);
 
+        if (chatSettings.nread_stats == false){
+            chatSettings.nread_messages += 1;
+            document.title = `• ${chatSettings.nread_messages} Новых сообщений - Test Chat`
+        };
+
     } else {
         var div = document.getElementById("messages");
         var p = document.createElement('p');
@@ -32,8 +55,14 @@ function createMessage(username, message, nick_color){
         p.className = "in_message";
         div.appendChild(p);
         div.scrollBy(0, 100);
+
+        if (chatSettings.nread_stats == false){
+            chatSettings.nread_messages += 1;
+            document.title = `• ${chatSettings.nread_messages} Новых сообщений - Test Chat`
+        };
     }
 };
+
 
 // Bind
 document.addEventListener('keyup', function(event){
@@ -74,7 +103,9 @@ function MessageSend(){
             if (password == chatSettings.admin_password){
                 socket.emit('clear_chat', {author: author});
             };
-        } else if (cups == true){ // Cups
+
+        // Cups
+        } else if (cups == true){
             var incontent = content.split('/cups ')[1];
             var string = "";
             try{
@@ -85,16 +116,33 @@ function MessageSend(){
                 };
             }
             catch{
-                socket.emit('cups_commad', {username: author, message: string, nc: nnc})
+                socket.emit('new_message', {username: author, message: string, nc: nnc});
             };
 
+        // Ping
+        } else if (content == "/ping"){
+            var image = document.getElementById('ping_tester');
+            var stime = new Date().getTime();
+
+            image.setAttribute('src', 'https://www.google.com/');
+            image.onerror = () => {
+                var etime = new Date().getTime();
+                var ping = `${author}, ${etime - stime}ms`;
+                socket.emit("new_message", {username: author, message: content, nc: nnc});
+                socket.emit("new_message", {username: "Server", message: ping, nc: '#000'});
+            };
+
+        // Send message
         } else { 
-            // Send message
-            socket.emit('new_message', {username: username, message: message, nc: nnc});
+            socket.emit('new_message', {username: author, message: content, nc: nnc});
         };
     };
     slashCommands(message, username);
 }
+
+socket.on("new_message", (data) => {
+    createMessage(data.username, data.message, data.nc);
+});
 
 socket.on("clear_back", (data) =>{
     function clearChat(){
@@ -112,14 +160,6 @@ socket.on("clear_back", (data) =>{
     };
     createMessage("Server", `<i>${data.author}</i> Запустил очистку чата, она произойдет через 5 секунд`)
     setTimeout(() => clearChat(), 5000);
-});
-
-socket.on("cups_back", (data) =>{
-    createMessage(data.author, data.message);
-});
-
-socket.on("new_message", (data) => {
-    createMessage(data.username, data.message, data.nc);
 });
 
 
@@ -140,7 +180,6 @@ socket.on("new_user", (data) => {
     };
     var div = document.getElementById("messages");
     div.scrollBy(0, 100);
-
 });
 
 // Load messages
@@ -150,6 +189,7 @@ socket.on("new_user_socket", (data) => {
     p.innerHTML = data.messages;
     p.className = "in_message";
     div.appendChild(p);
+    div.scrollBy(0, 1000);
 });
 
 
@@ -160,11 +200,6 @@ socket.on("udisconnect", (data) => {
     createMessage("Server", `<i>${data.id}</i> Вышел из чата`);
     var div = document.getElementById("messages");
     div.scrollBy(0, 100);
-});
-
-// Sticks
-socket.on("sticker_back", (data) => {
-    createMessage(data.name, data.text, data.nc);
 });
 
 
@@ -186,6 +221,11 @@ function stickerSend(stick){
     socket.emit("sticker_send", {author: username, name: stick, nc: nnc});
 }
 
+// Sticks
+socket.on("sticker_back", (data) => {
+    createMessage(data.name, data.text, data.nc);
+});
+
 
 
 // Front
@@ -198,7 +238,6 @@ function commandsClick(){
         chatSettings.commands_show = false;
     }
 };
-
 
 function stickClick(){
     if (chatSettings.stick_show == false){

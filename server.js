@@ -39,6 +39,11 @@ var chatStats = {
     users_online: 0,
 };
 
+var matrix = new Object();
+var matrix = {
+    action_list: []
+};
+
 
 app.get('/', function(req, res) {
     //res.sendFile('./index.html', { root: __dirname });
@@ -73,6 +78,7 @@ io.on("connection", (socket) => {
         socket.emit("new_user_socket", {messages: mdata});
         io.emit("new_user", {id: socket.id, users: chatStats.users_online, admin_password: "admin69"});
     });
+    socket.emit("matrix_new", {list: matrix.action_list});
 
 
 
@@ -197,6 +203,14 @@ io.on("connection", (socket) => {
             );
         });
         io.emit("clear_back", {author: data.author});
+    });
+
+
+
+    // MATRIX
+    socket.on("select_pix", (data) => {
+        io.emit("back_select_pixel", {type: data.type, list: data.list, id: data.id});
+        matrix.action_list = data.list;
     });
 
 });

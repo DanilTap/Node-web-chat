@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Matrix</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+    <!--JS-->
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="control_panel">
+		<fieldset>
+			<legend>Функции</legend>
+			<button id="select_all" onclick="matrix.selectAll(7)">Выбрать все</button>
+			<button id="clear_all" onclick="matrix.clearAll()">Очистить матрицу</button>
+			<button id="snake_button" onclick="selectSnake()">Змейка:</button><input type="number" id="snake_input" placeholder="Длина"><br><input onclick="selectGrid()" id="grid_input" type="checkbox" checked><p class="grid_title">Показывать сетку</p>
+			<input onclick="selectBorder()" id="border_input" type="checkbox" checked>
+			<p class="border_title">Округлые пиксели</p><br>
+
+			<i class="help"><strong>*</strong> Нажмите на нужный пиксель для его закрашивания, повторное нажатие убирает его активацию.</i>
+		</fieldset>
+	</div>
+
+
+	<div id="blocks_wrapper">
+
+	</div>
+
+	<span class="footer">
+		<a href="https://object-node.herokuapp.com/index.html" id="back"><<- На Главную</a>
+	</span>
+
+	<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+.color_block {
+	width: 20px;
+	height: 20px;
+	border-radius: 7px;
+	border: 1px solid black;
+	color: white;
+	user-select: none;
+	cursor: pointer;
+	display: inline-flex;
+}
+
+.color_block:hover {
+	background-color: orange !important;
+	color: orange !important;
+}
+
+.control_panel {
+	position: absolute;
+	width: 400px;
+	right: 0;
+}
+
+.control_panel fieldset {
+	height: 400px;
+}
+
+.control_panel button {
+	margin: 10px 5px;
+}
+
+#snake_input {
+	width: 80px;
+}
+
+.help {
+	font-family: 'Consolas';
+	opacity: 0.7;
+	font-size: 15px;
+}
+
+#blocks_wrapper {
+	display: inline-block;
+	box-shadow: 5px 5px 15px #333;
+}
+
+#grid_input {
+	float: left;
+}
+
+.grid_title {
+	margin-top: 0px;
+}
+
+#border_input {
+	float: left;
+}
+
+.footer {
+	position: absolute;
+	right: 0px;
+	bottom:  0px;
+	width: 130px;
+	background-color: #333;
+	border-top-left-radius: 5px;
+	height: 20px;
+	padding: 10px;
+	transition: 500ms;
+}
+
+.footer:hover {
+	background-color: #333;
+	width: 150px;
+}
+
+#back {
+	font-family: 'Consolas';
+	color: white;
+	text-decoration: none;
+	transition: 500ms;
+}
+
+#back:hover {
+	color: orange;
+}

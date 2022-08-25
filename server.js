@@ -46,9 +46,8 @@ var matrix = {
 
 
 app.get('/', function(req, res) {
-    //res.sendFile('./index.html', { root: __dirname });
-    //res.sendFile('./front.js', { root: __dirname });
     app.use(express.static(__dirname + "/site"));
+    res.redirect("index.html");
 });
 
 

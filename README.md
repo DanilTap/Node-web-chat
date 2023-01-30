@@ -1,8 +1,9 @@
 # Node-web-chat
 
 ## About
-Web chat on socket.io #1020248.<br>
-The project uses: Express, http and socket.io modules.<br>
+This project is an example of a simple chat on Socket.io.
+It does not have encryption and any kind of protection, just for variety, all messages are written to a txt file as a database.
+The project uses: Express, Http and Socket.io modules.<br>
 1. The chat allows people with different nicknames to communicate.
 2. The number of users is indicated in the corresponding line.
 3. Program has binds for convenient sending of messages.
